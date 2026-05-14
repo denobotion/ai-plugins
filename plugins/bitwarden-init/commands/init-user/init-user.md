@@ -1,6 +1,6 @@
 ---
 description: Set up a user-level ~/.claude/CLAUDE.md with opt-in Bitwarden behavioral modules through a guided Q&A
-allowed-tools: Read, Write, Edit, Bash, Glob
+allowed-tools: Read, Write, Edit, Bash(diff:*), Bash(cp:*), Bash(date:*), Bash(rm:*), Glob
 ---
 
 Walk the user through a guided Q&A to assemble a user-level CLAUDE.md at `~/.claude/CLAUDE.md`. The file contains behavioral rules that apply to **every project and every conversation** Claude Code is launched in.

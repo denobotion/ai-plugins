@@ -1,6 +1,6 @@
 ---
 description: Set up a workspace-level CLAUDE.md (Bitwarden domain context) for the folder containing all locally-cloned Bitwarden repos
-allowed-tools: Read, Write, Edit, Bash, Glob
+allowed-tools: Read, Write, Edit, Bash(find:*), Bash(wc:*), Bash(tr:*), Bash(dirname:*), Bash(mkdir:*), Bash(diff:*), Bash(cp:*), Bash(date:*), Bash(rm:*), Glob
 ---
 
 Walk the user through a guided Q&A to assemble a workspace-level CLAUDE.md at `<workspace-root>/.claude/CLAUDE.md`, where `<workspace-root>` is the directory the user keeps all their cloned Bitwarden repos in. Claude Code automatically loads this file in any subdirectory of that root, so it's the right home for cross-repo Bitwarden domain context (zero-knowledge invariant, P01–P06, vocabulary, operating defaults).
@@ -75,7 +75,8 @@ This represents one engineer's opinion. Modules are opt-in; the user picks which
 7. **Backup, then write.**
    - Ensure `<workspace-root>/.claude/` exists (`mkdir -p`).
    - If the target file already exists, copy it to `<target>.bak-$(date -u +%Y%m%dT%H%M%SZ)`.
-   - `Write` the rendered content. Clean up the temp preview file.
+   - Use `Write` to create the target with the rendered content. (If `Write` rejects modifying a file that already exists, fall back to `Edit` with the full-file replacement.)
+   - Clean up the temp preview file.
 
 8. **Summary.** Report:
    - The target path written.

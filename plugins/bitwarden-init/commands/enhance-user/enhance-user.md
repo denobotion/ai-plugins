@@ -1,6 +1,6 @@
 ---
 description: Refresh an existing user-level ~/.claude/CLAUDE.md by adding missing modules from the Bitwarden init template library
-allowed-tools: Read, Write, Edit, Bash, Glob
+allowed-tools: Read, Write, Edit, Bash(diff:*), Bash(cp:*), Bash(date:*), Bash(rm:*), Glob
 ---
 
 Refresh an existing `~/.claude/CLAUDE.md` by detecting which behavioral modules from the Bitwarden init template library are already present and offering to add the missing ones. Same safety guardrails as `/bitwarden-init:init-user` — backup before overwrite, diff preview, explicit Apply confirmation.
@@ -30,7 +30,7 @@ Refresh an existing `~/.claude/CLAUDE.md` by detecting which behavioral modules 
 
 6. **Backup, then write.**
    - Copy the existing file to `~/.claude/CLAUDE.md.bak-$(date -u +%Y%m%dT%H%M%SZ)`.
-   - Use `Edit` (or `Write`) to update `~/.claude/CLAUDE.md` with the rendered content.
+   - Use `Edit` to update `~/.claude/CLAUDE.md` with the full rendered content. (`Write` works as a fallback if `Edit`'s old-string match fails for any reason — the file always exists at this point.)
    - Clean up the temp preview.
 
 7. **Summary.** Report which modules were added, the backup path, and a reminder to revisit any `[YOUR-PREFERENCE]` placeholders.

@@ -1,6 +1,6 @@
 ---
 description: Refresh an existing workspace-level CLAUDE.md by adding missing Bitwarden domain modules
-allowed-tools: Read, Write, Edit, Bash, Glob
+allowed-tools: Read, Write, Edit, Bash(find:*), Bash(wc:*), Bash(tr:*), Bash(dirname:*), Bash(diff:*), Bash(cp:*), Bash(date:*), Bash(rm:*), Glob
 ---
 
 Refresh an existing workspace-level CLAUDE.md by detecting which Bitwarden domain modules are already present and offering to add the missing ones. Same safety guardrails as `/bitwarden-init:init-workspace` — backup before overwrite, diff preview, explicit Apply confirmation.
@@ -33,7 +33,8 @@ A workspace-level CLAUDE.md must already exist. If it doesn't, stop and point th
 
 7. **Backup, then write.**
    - Copy the existing target to `<target>.bak-$(date -u +%Y%m%dT%H%M%SZ)`.
-   - Write the rendered content. Clean up the temp preview.
+   - Use `Edit` to update the target with the full rendered content. (`Write` works as a fallback if `Edit`'s old-string match fails for any reason — the file always exists at this point.)
+   - Clean up the temp preview.
 
 8. **Summary.** Report which modules were added, the backup path, and a reminder that this file applies to every Bitwarden repo under `<workspace-root>`.
 

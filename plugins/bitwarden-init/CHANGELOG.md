@@ -14,6 +14,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `/bitwarden-init:enhance-user` and `/bitwarden-init:enhance-workspace` — Refresh existing user-level or workspace-level CLAUDE.md files by adding missing modules
 - Modular template library under `templates/user/` (10 modules) and `templates/workspace/` (8 modules) — each module is opt-in and editable; defaults are derived from one Bitwarden engineer's published preferences, not imposed as a standard
 - Safety guardrails for global-state writes: timestamped backups before overwriting and unified-diff preview with explicit `Apply` confirmation
+- `allowed-tools` on the four new commands narrows `Bash` to the specific subcommands each command needs (`diff`, `cp`, `date`, `rm`, plus `find`/`wc`/`tr`/`dirname`/`mkdir` for the workspace flows) so the model can't invoke arbitrary shell tools
 
 ### Changed
 
