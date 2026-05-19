@@ -5,6 +5,16 @@ All notable changes to the `bitwarden-software-engineer` plugin will be document
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.0.0] - 2026-05-19
+
+### Changed
+
+- Agent definition realigned with the canonical "Software Engineer" role on the Engineering Career Ladder (three dimensions: Engineering Excellence, Delivery & Impact, Leadership & Communication). The body intro now opens with the role's own framing rather than a generic "senior full-stack engineer" persona.
+- Description rewritten to enumerate the role's responsibilities (implementing stories/tasks/bugs in the team's domain, refinement and sizing participation, PR review, QA collaboration, reaching out for guidance, Git/Jira/Slack conventions) and now includes four `<example>` blocks (story implementation, PR review, surfacing ambiguity mid-implementation, preparing the commit and PR deliverable) so the orchestrator can route on concrete triggering scenarios.
+- New _Cross-Plugin Integration_ section listing the delivery-lifecycle skills (`committing-changes`, `creating-pull-request`, `perform-preflight`, `labeling-changes`) and `researching-jira-issues` that the engineer role exercises daily.
+- Renamed `agents/bitwarden-software-engineer.md` → `agents/AGENT.md` to match the convention used by other agent plugins in this marketplace.
+- Plugin and marketplace descriptions, and the marketplace README catalog row, rewritten to match the new role framing. Added `software-engineer` to plugin keywords.
+
 ## [0.4.2] - 2026-05-13
 
 ### Fixed
