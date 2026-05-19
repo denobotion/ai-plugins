@@ -1,9 +1,0 @@
-{
-  "permissions": {
-    "allow": [
-      "Bash(./scripts/bump-plugin-version.sh bitwarden-atlassian-tools *)",
-      "Bash(./scripts/validate-plugin-structure.sh bitwarden-atlassian-tools *)",
-      "Bash(./scripts/validate-marketplace.sh bitwarden-atlassian-tools *)"
-    ]
-  }
-}
