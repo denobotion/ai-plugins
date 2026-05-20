@@ -128,13 +128,20 @@ def runs_for(query, should_trigger, runs, timeout, model):
         if r["triggered"]:
             triggers += 1
         samples.append(r.get("first_skill"))
+    rate = triggers / runs
+    # Surface samples to stderr only when the per-query outcome disagrees with
+    # `should_trigger`, so debugging info is available without baking
+    # environment-specific tool inputs (absolute paths, etc.) into the
+    # persisted result that the README diffs for regression checks.
+    if (rate >= 0.5) != should_trigger:
+        for s in samples:
+            print(f"    sample: {s}", file=sys.stderr)
     return {
         "query": query,
         "should_trigger": should_trigger,
         "triggers": triggers,
         "runs": runs,
-        "trigger_rate": triggers / runs,
-        "samples": samples,
+        "trigger_rate": rate,
     }
 
 
