@@ -1,7 +1,7 @@
 ---
 name: creating-pull-request
 description: Open a pull request from a branch in a Bitwarden repository — pick the conventional commit type prefix that drives the t: label, fill in the repo's PR template, choose an ai-review label, and confirm a full submission preview before running gh pr create.
-when_to_use: Use whenever the user signals they're done with a branch and ready to put it up for code review, including casual phrasings like "package this up into a PR", "ship a draft", "send it up for review", "get this in front of reviewers", "wrap this branch", "throw together a PR", or "open the request". Treat signals like "ready for review" or "ship it" as PR creation requests even when the user doesn't say "PR" explicitly. Also use for the title or body of a PR being opened, picking the conventional commit type (feat:, fix:, etc.), and choosing which t: label or ai-review label the PR will receive — taking precedence over the labeling-changes skill in PR-creation contexts. Do not invoke for conceptual or educational questions ("explain how PRs work", "what's a pull request"), or for status or management of existing PRs (merging, closing, reviewing diffs, addressing comments).
+when_to_use: Use when the user is ready to open a pull request from a branch — phrasings like "create a PR", "open a PR", "ship a draft", "put it up for review", "ready for review", or "ship it". Also use when drafting a PR title or body, picking the conventional commit type prefix, or choosing the t: or ai-review label for a PR being opened (takes precedence over labeling-changes in PR-creation contexts). Do not use for conceptual questions ("how do PRs work") or managing existing PRs (status, merging, addressing comments).
 ---
 
 # Creating a Pull Request
@@ -68,7 +68,7 @@ If no template exists, fall back to:
 Use the `AskUserQuestion` tool to ask:
 
 - **Question**: "Would you like to add an AI review label to this PR?"
-- **Options**: `ai-review-vnext`, `ai-review`, `No label`
+- **Options**: `ai-review`, `ai-review-vnext`, `No label`
 
 Capture the answer. You'll surface it in Step 5 and pass it on the command line in Step 6.
 
@@ -87,7 +87,7 @@ Branch:         <branch-name>
 Draft:          <Yes / No>
 Title:          <full title as it will be submitted>
 Type prefix:    <type>  →  will apply  t:<label>
-AI review:      <ai-review-vnext / ai-review / No label>
+AI review:      <ai-review / ai-review-vnext / No label>
 
 Body:
 ---
