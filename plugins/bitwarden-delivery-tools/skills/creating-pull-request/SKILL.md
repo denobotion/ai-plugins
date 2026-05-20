@@ -20,7 +20,13 @@ Follow these steps in order. Each one produces information the next step needs, 
 
 ### Step 1 — Confirm preflight is done
 
-Ask the user whether `perform-preflight` has run, or offer to run it. A PR opened on broken work wastes reviewer time and tends to mask the real problem under a pile of comment threads.
+A PR opened on broken work wastes reviewer time and tends to mask the real problem under a pile of comment threads. Use the `AskUserQuestion` tool to confirm preflight before continuing:
+
+- **Question**: "Has `perform-preflight` already run on this branch?"
+- **Options**:
+  - `Yes — proceed` — continue to Step 2
+  - `No — run it now` — invoke `perform-preflight`, then continue to Step 2 once it passes
+  - `Skip preflight` — proceed only if the user explicitly opts out
 
 ### Step 2 — Determine change type and propose the title
 
