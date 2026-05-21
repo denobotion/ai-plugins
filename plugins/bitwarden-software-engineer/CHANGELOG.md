@@ -12,6 +12,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Agent realigned with the canonical "Software Engineer" role on the Engineering Career Ladder (Engineering Excellence, Delivery & Impact, Leadership & Communication) and the description now includes four `<example>` blocks for orchestrator routing.
 - Renamed `agents/bitwarden-software-engineer.md` → `agents/AGENT.md` to match the convention used by sibling agent plugins.
 - Plugin/marketplace descriptions and README catalog row rewritten to match; added `software-engineer` to keywords.
+- Plugin `README.md` refreshed to match the new agent-only framing (the 0.4.0 skills migration left it describing skills the plugin no longer ships).
 
 ## [0.4.2] - 2026-05-13
 
