@@ -1,7 +1,7 @@
 {
   "name": "bitwarden-designer",
   "version": "0.1.0",
-  "description": "Product designer agent for Bitwarden. Grounds design work in the team's Code of Conduct, the 30/60/90 critique framework, and the product content style guide — and in the documented processes for design review, design-to-engineering handoff, Design System evolution, the Product and Design Jira workflow, and Figma usage via the Dev Mode MCP server.",
+  "description": "Product designer agent for Bitwarden. Holds the design team's Code of Conduct and the 30/60/90 critique framework, and dispatches into the bitwarden-design-tools toolkit for content style, Figma reads, brand application, handoff prep, Design System governance, and the Product and Design Jira workflow.",
   "author": {
     "name": "Bitwarden",
     "url": "https://github.com/bitwarden"
@@ -12,14 +12,8 @@
     "designer",
     "design-review",
     "design-critique",
-    "content-style-guide",
-    "ux-writing",
-    "design-handoff",
-    "design-system",
-    "figma",
-    "figma-mcp",
-    "accessibility",
-    "30-60-90"
+    "30-60-90",
+    "code-of-conduct"
   ],
   "agents": "./agents/AGENT.md"
 }
