@@ -21,7 +21,15 @@ skills/applying-bitwarden-branding/
 │   └── logo-usage.md
 └── assets/
     ├── bitwarden-tokens.css
-    └── bitwarden-shield.svg
+    ├── bitwarden-lockup-official.svg          (full reference)
+    ├── bitwarden-lockup-horizontal-blue.svg   (light-surface primary)
+    ├── bitwarden-lockup-horizontal-white.svg  (dark-surface primary)
+    ├── bitwarden-lockup-vertical-blue.svg     (light-surface secondary)
+    ├── bitwarden-lockup-vertical-white.svg    (dark-surface secondary)
+    ├── bitwarden-shield-blue.svg              (chip-scale, light)
+    ├── bitwarden-shield-white.svg             (chip-scale, dark)
+    ├── bitwarden-wordmark-blue.svg            (wordmark only, light)
+    └── bitwarden-wordmark-white.svg           (wordmark only, dark)
 examples/
 └── on-brand-one-pager.html
 ```
