@@ -6,10 +6,10 @@ description: >
   tokens from Figma", "what variables does this use", "what's in this Figma file", "compare
   these two Figma frames", "inspect this component", or any task that needs design context
   from Figma without generating production code. The repo-specific output skill (such as
-  `figma-to-angular` in the clients repo) handles framework-bound code generation; this skill
-  handles the Figma side of the boundary — selecting the right MCP tool, parsing URLs into
-  fileKey and nodeId, and turning Figma context into useful information for critique, copy
-  review, handoff prep, and Design System work.
+  `figma-to-angular` in the clients repo — external, not bundled) handles framework-bound code
+  generation; this skill handles the Figma side of the boundary — selecting the right MCP
+  tool, parsing URLs into fileKey and nodeId, and turning Figma context into useful information
+  for critique, copy review, handoff prep, and Design System work.
 ---
 
 # Using Figma via the Dev Mode MCP Server
