@@ -4,9 +4,11 @@ description: >
   Prepare a Bitwarden design handoff — the Confluence handoff page, the Figma "Ready for Dev"
   state, and the Jira transitions that go with them. This skill should be used when the user
   asks to "prep handoff", "create a handoff page", "what goes in a handoff", "hand this off to
-  engineering", "move this to Ready for Dev", or any task at the end of the In Design phase
-  before engineering picks the work up. Composes `navigating-design-jira-process` for the
-  Jira moves and `using-figma` for verifying the Figma file is handoff-ready.
+  engineering", "finish the design phase", or any task at the end of the In Design phase
+  before engineering picks the work up. For Jira-specific state transitions on their own
+  (e.g., "move this to Ready for Dev"), use `navigating-design-jira-process`. This skill
+  composes that one for the Jira moves and `using-figma` for verifying the Figma file is
+  handoff-ready.
 ---
 
 # Preparing a Design Handoff

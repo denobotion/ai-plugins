@@ -4,8 +4,9 @@ description: >
   Bitwarden's product content style guide for GUI copy — voice, tone, grammar, mechanics, and
   accessibility rules for end-user-facing text (button labels, error messages, toasts, modal
   copy, onboarding, empty states, etc.). Use this skill when reviewing or rewriting product copy,
-  when generating components from Figma (figma-to-angular) so generated strings follow the guide,
-  and during design critiques (design-review) to evaluate content alongside visual design.
+  when generating components from Figma (figma-to-angular — external, not bundled) so generated
+  strings follow the guide, and during design critiques (design-review) to evaluate content
+  alongside visual design.
   Triggers on phrases like "review this copy", "is this error message ok", "rewrite this button
   label", "check the wording", "what should this say", or when end-user-facing strings are being
   authored or critiqued. Does NOT cover developer-facing strings, code comments, design tokens,
@@ -75,7 +76,7 @@ Where common content types land on the tone map (axes: casual ↔ formal × matt
 4. Walk accessibility rules relevant to the snippet — see `references/accessibility-rules.md`.
 5. Return specific, actionable rewrites — not just "this is wrong."
 
-**Inside figma-to-angular runs:**
+**Inside `figma-to-angular` runs** (external skill in the clients repo, not bundled here):
 
 When the Figma design includes copy strings, validate them against this guide before emitting
 them into the Angular template. If a string clearly violates a rule (e.g., title-case button,

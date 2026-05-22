@@ -97,6 +97,15 @@ language, and the rest. Treat content findings as first-class critique points, n
 
 Skip content nitpicks at **30%** — direction, not copy, is the question at that stage.
 
+## Composing with other skills in this plugin
+
+- **`content-style-guide`.** Compose at 60% and 90% stages to evaluate user-visible copy
+  alongside visual design — voice and tone, sentence case, no ampersands, accessibility rules.
+  Skip at 30%, where copy is too early to critique.
+- **`using-figma`.** When the design under review lives in a Figma file, compose to read the
+  context. Start with `get_screenshot` + `get_metadata` to orient; pull `get_variable_defs`
+  when tokens are part of the critique (off-system colors, inconsistent spacing).
+
 ## Output format
 
 Structure the critique as:

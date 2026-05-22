@@ -16,9 +16,12 @@ description: >
 
 This skill grounds the designer in the Figma Dev Mode MCP server — Figma's official MCP that
 exposes design context, variables, screenshots, metadata, and design-system search to Claude.
-Apply it whenever a task needs to _read_ a Figma design (or _create / modify_ one); composing
-skills like `design-review`, `content-style-guide`, `preparing-design-handoff`, and
-`evolving-design-system-components` call into here whenever a Figma file is referenced.
+Apply it whenever a task needs to _read_ a Figma design — extract structure, tokens,
+screenshots, or strings. Composing skills like `design-review`, `content-style-guide`,
+`preparing-design-handoff`, and `evolving-design-system-components` call into here whenever a
+Figma file is referenced. Write tools (creating files, uploading assets, generating diagrams,
+mapping Code Connect) exist on the MCP server and are documented below for completeness, but
+this skill's center of gravity is read.
 
 ## Prerequisite: the MCP server must be installed
 
@@ -46,22 +49,43 @@ If the user pastes a URL without a `node-id`, the URL points at the whole file. 
 they mean before extracting anything — operating on the whole file is rarely what's wanted and
 returns far too much context.
 
-## The tools, by job to be done
+## The read tools, by job to be done
 
 The Figma MCP server exposes many tools. Pick the smallest one that answers the question.
 
-| Job to be done                                               | Tool                                                                                                                                         | Notes                                                                                          |
-| ------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| Read a frame's design context (code + screenshot + metadata) | `get_design_context`                                                                                                                         | Most common entry point. Accepts a framework parameter; defaults to React + Tailwind.          |
-| Get just the structural outline                              | `get_metadata`                                                                                                                               | Sparse XML of layer IDs, names, types, positions, sizes. Cheap.                                |
-| Get just the rendered image                                  | `get_screenshot`                                                                                                                             | Visual reference without the code or token noise.                                              |
-| Extract design tokens used in selection                      | `get_variable_defs`                                                                                                                          | Variables and styles — colors, spacing, typography.                                            |
-| Discover available libraries on the file                     | `get_libraries`                                                                                                                              | Shows which subscribed/available design libraries are linked.                                  |
-| Find a component in the design system                        | `search_design_system`                                                                                                                       | Text query against components, variables, styles.                                              |
-| Inspect a FigJam board                                       | `get_figjam`                                                                                                                                 | Same role as `get_metadata` but for FigJam content.                                            |
-| Identify the authenticated Figma user                        | `whoami`                                                                                                                                     | Useful when permission / seat type matters.                                                    |
-| Create or modify Figma objects                               | `use_figma`, `create_new_file`, `upload_assets`, `generate_figma_design`, `generate_diagram`                                                 | Write operations. Confirm intent with the user before invoking.                                |
-| Code Connect mapping work                                    | `get_code_connect_map`, `add_code_connect_map`, `get_context_for_code_connect`, `get_code_connect_suggestions`, `send_code_connect_mappings` | Design System ↔ codebase mapping. Mostly relevant inside `evolving-design-system-components`. |
+| Job to be done                                               | Tool                   | Notes                                                                                 |
+| ------------------------------------------------------------ | ---------------------- | ------------------------------------------------------------------------------------- |
+| Read a frame's design context (code + screenshot + metadata) | `get_design_context`   | Most common entry point. Accepts a framework parameter; defaults to React + Tailwind. |
+| Get just the structural outline                              | `get_metadata`         | Sparse XML of layer IDs, names, types, positions, sizes. Cheap.                       |
+| Get just the rendered image                                  | `get_screenshot`       | Visual reference without the code or token noise.                                     |
+| Extract design tokens used in selection                      | `get_variable_defs`    | Variables and styles — colors, spacing, typography.                                   |
+| Discover available libraries on the file                     | `get_libraries`        | Shows which subscribed/available design libraries are linked.                         |
+| Find a component in the design system                        | `search_design_system` | Text query against components, variables, styles.                                     |
+| Inspect a FigJam board                                       | `get_figjam`           | Same role as `get_metadata` but for FigJam content.                                   |
+| Identify the authenticated Figma user                        | `whoami`               | Useful when permission / seat type matters.                                           |
+
+### Code Connect tools
+
+These map Figma components to their code counterparts. Mostly relevant inside
+`evolving-design-system-components`; rarely needed for critique or copy review.
+
+- `get_code_connect_map` — returns existing mappings, source files, and snippets for selected
+  instances.
+- `get_code_connect_suggestions` — suggested mappings for selected components.
+- `get_context_for_code_connect` — property definitions and variant options for a component.
+- `add_code_connect_map` — writes a Figma-node-to-code mapping. **Write tool — confirm first.**
+- `send_code_connect_mappings` — submits confirmed mappings.
+
+### Write tools
+
+All write tools modify Figma state. Confirm scope and target with the user before invoking,
+and report exactly what was created or changed.
+
+- `use_figma` — generic create / modify / delete on Figma objects.
+- `create_new_file` — creates a new Design or FigJam file.
+- `upload_assets` — uploads PNG/JPG/GIF/WebP images (max 10 MB) as fills or new frames.
+- `generate_figma_design` — sends UI code into Figma as design layers.
+- `generate_diagram` — generates a FigJam diagram from Mermaid syntax or natural language.
 
 Per-tool parameters and full output shape are in `references/figma-mcp-tools.md`.
 

@@ -83,9 +83,9 @@ Both modes share the same arc; the depth differs.
 A useful set of opening phrases when the room stalls:
 
 - "What problem is this solving for the user?"
-- "I'm unclear about \_\_ — could you explain?"
-- "Have we considered \_\_ as an alternative?"
-- "This part feels strong because \_\_."
+- "I'm unclear about [blank] — could you explain?"
+- "Have we considered [blank] as an alternative?"
+- "This part feels strong because [blank]."
 
 ## Common participation traps
 

@@ -21,6 +21,11 @@ and where the work is. Read the canonical page via `get_confluence_page` when pr
 project — the page has a Figma process diagram that this skill summarizes but does not
 duplicate.
 
+> **A note on status names below.** Jira status labels appear here in the same casing Jira uses
+> them — `IN DESIGN`, `TODO`, `IN PROGRESS`, `DONE`, `ON HOLD`, `DESIGN NEEDED`, `Ready for Dev`.
+> Copy them verbatim when transitioning tickets; the mixed casing isn't a typo, it's the labels
+> engineering and design configured.
+
 ## The structural rule
 
 **Design tasks live under engineering epics**, not in a parallel design-only stream. Every
